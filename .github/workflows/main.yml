@@ -49,9 +49,9 @@ jobs:
       - name: Executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
+          key: ${{secrets.SSH_KEY}}
           host: ${{secrets.HOST}}
           username: ${{secrets.USER}}
-          key: ${{secrets.SSH_KEY}}
           passphrase: ${{secrets.PASSPHRASE}}
           script: |
             sudo docker pull varond/infra
